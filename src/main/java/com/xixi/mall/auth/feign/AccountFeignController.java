@@ -9,11 +9,13 @@ import com.xixi.mall.api.auth.vo.TokenInfoVo;
 import com.xixi.mall.auth.service.feign.AccountFeignService;
 import com.xixi.mall.common.core.aop.PackResponseEnhance;
 import com.xixi.mall.common.core.webbase.vo.ServerResponse;
+import com.xixi.mall.common.security.annotations.FeignAuthenticate;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
 @RestController
+@FeignAuthenticate
 public class AccountFeignController implements AccountFeignClient {
 
     @Resource
