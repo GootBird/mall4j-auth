@@ -113,13 +113,12 @@ public class AccountFeignService {
     /**
      * 根据用户id和系统类型获取用户信息
      *
-     * @param userId 用户id
+     * @param userId  用户id
+     * @param sysType
      * @return void
      */
-    public AuthAccountVo getById(Long userId) {
-        UserInfoInTokenBo userInfoInTokenBo = AuthUserContext.get();
-        AuthAccountEntity authAccountEntity = authAccountManage.getByUserIdAndType(userId, userInfoInTokenBo.getSysType());
-
+    public AuthAccountVo getById(Long userId, Integer sysType) {
+        AuthAccountEntity authAccountEntity = authAccountManage.getByUserIdAndType(userId, sysType);
         return mapperFacade.map(authAccountEntity, AuthAccountVo.class);
     }
 

@@ -72,8 +72,8 @@ public class AccountFeignController implements AccountFeignClient {
      * @return void
      */
     @Override
-    public ServerResponse<AuthAccountVo> getById(Long userId) {
-        return PackResponseEnhance.enhance(() -> service.getById(userId));
+    public ServerResponse<AuthAccountVo> getById(Long userId, Integer sysType) {
+        return PackResponseEnhance.enhance(() -> service.getById(userId, sysType));
     }
 
     /**
