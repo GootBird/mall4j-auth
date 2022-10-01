@@ -50,13 +50,13 @@ public class TokenStoreSysService {
      * 普通用户token过期时间  1小时
      * 以秒为单位
      */
-    private static final int GENERAL_USER_EXPIRES = 3600;
+    private static final int GENERAL_USER_EXPIRES = 3600000;
 
     /**
      * 系统管理远token过期时间  2小时
      * 以秒为单位
      */
-    private static final int ADMIN_USER_EXPIRES = 7200;
+    private static final int ADMIN_USER_EXPIRES = 7200000;
 
     /**
      * 传递给前端的加密token数据由真实token + 系统当前时间 + 系统类型组成
@@ -313,7 +313,7 @@ public class TokenStoreSysService {
         int expiresIn = getExpiresIn(sysType);
 
         if (System.currentTimeMillis() - createTokenTime > expiresIn) {
-            ThrowUtils.throwErr("token 格式有误");
+            ThrowUtils.throwErr("token 已过期");
         }
 
         // 防止解密后的token是脚本，从而对redis进行攻击，uuid只能是数字和小写字母

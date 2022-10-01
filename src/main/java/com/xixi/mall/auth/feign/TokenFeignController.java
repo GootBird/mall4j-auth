@@ -5,14 +5,13 @@ import com.xixi.mall.api.auth.feign.TokenFeignClient;
 import com.xixi.mall.auth.service.sys.TokenStoreSysService;
 import com.xixi.mall.common.core.aop.PackResponseEnhance;
 import com.xixi.mall.common.core.webbase.vo.ServerResponse;
-import com.xixi.mall.common.security.annotations.FeignAuthenticate;
-import lombok.extern.slf4j.Slf4j;
+import com.xixi.mall.common.security.annotations.SkipAuthenticate;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
 @RestController
-@FeignAuthenticate
+@SkipAuthenticate
 public class TokenFeignController implements TokenFeignClient {
 
 

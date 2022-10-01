@@ -1,5 +1,6 @@
 package com.xixi.mall.auth.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.xixi.mall.common.core.webbase.entity.BaseEntity;
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class AuthAccountEntity extends BaseEntity {
     /**
      * 全平台用户唯一id
      */
+    @TableId
     private Long uid;
 
     /**
